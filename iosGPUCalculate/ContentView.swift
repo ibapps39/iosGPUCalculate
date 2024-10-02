@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var metalManager = MetalManager()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Metal GPU Calculation")
+            Button("Calculate") {
+                metalManager.performCalculation()
+            }
         }
         .padding()
     }
@@ -22,3 +24,17 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+//struct ContentView: View {
+//    @StateObject private var metalManager = MetalManager()
+//
+//    var body: some View {
+//        VStack {
+//            Text("Metal GPU Calculation")
+//            Button("Calculate") {
+//                metalManager.performCalculation()
+//            }
+//        }
+//        .padding()
+//    }
+//}
