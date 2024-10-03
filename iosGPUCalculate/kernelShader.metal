@@ -8,11 +8,15 @@
 #include <metal_stdlib>
 using namespace metal;
 
-kernel void add_arrays(const device float *a [[ buffer(0) ]],
-                       const device float *b [[ buffer(1) ]],
-                       device float *result [[ buffer(2) ]],
-                       uint id [[ thread_position_in_grid ]]) {
-    result[id] = a[id] + b[id];
+// Kernel, Compute, function for vector addition
+kernel void vectorAdd(
+                      const device float* A [[ buffer(0)]],
+                      const device float* B [[ buffer(1)]],
+                      device float* result [[ buffer(2)]],
+                      uint id [[ thread_position_in_grid ]]
+                      ) 
+{
+    result[id] = A[id] + B[id];
 }
 
 
